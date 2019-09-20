@@ -1,7 +1,45 @@
+/*
+Created by Parker Evans on 9/19
+with the help of 
+
+This is the map file we are creating a char array to fill all of the field with an '*' and then when explored to a 'space'
+
+
+*/
+
 #include <iostream>
 
-int main(){
-	
-	
-	return 0;
+
+
+/*
+Here we created the map as a global two dimensional array, since we will never change its size.
+*/
+char map[10][30];
+
+/*
+Here we are creating the explored room method to change the tile. Need to add change of status to tiles.
+*/
+void found_empty(x,y){
+	map[x][y] = 32;	
 }
+
+void found_spike(x,y){
+	map[x][y] = 94;	
+}
+
+void found_qs(x,y){
+	map[x][y] = 33;	
+}
+
+void found_insult(x,y){
+	map[x][y] = 63;	
+}
+void found_good_potion(x,y){
+	map[x][y] = 43;	
+}
+
+void found_bad_potion(x,y){
+	map[x][y] = 35;
+}
+
+
