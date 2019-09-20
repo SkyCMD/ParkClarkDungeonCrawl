@@ -1,0 +1,6 @@
+-map edge is death
+-tunnels
+-bad potions
+-funny traps
+-give hero HP
+-
