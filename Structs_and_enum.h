@@ -1,5 +1,6 @@
 #include <string>
 
+
 struct hero
 {
 	std::string name;
@@ -27,3 +28,4 @@ enum tile_type
 	ENTRANCE,		//{ 	123
 	EXIT,
 };
+
