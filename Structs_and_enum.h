@@ -1,3 +1,6 @@
+#ifndef STRUCTSENUMS
+#define STRUCTSENUMS
+
 #include <string>
 
 
@@ -28,4 +31,5 @@ enum tile_type
 	ENTRANCE,		//{ 	123
 	EXIT,
 };
+#endif
 
