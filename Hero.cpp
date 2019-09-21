@@ -33,20 +33,52 @@ void move(hero h){
 		if(h.y>30){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
+			h.y = 30;
 		}
 		if(h.y<0){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
+			h.y=0;
 		}
 	}
 	if(step == 'S'){
 		h.y+=h.speed;
+		if(h.y>30){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y = 30;
+		}
+		if(h.y<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y=0;
+		}
 	}
 	if(step == 'E'){
 		h.x+=h.speed;
+		if(h.x>10){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x = 10;
+		}
+		if(h.x<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x=0;
+		}
 	}
 	if(step == 'W'){
 		h.x-=h.speed;
+		if(h.x>10){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x = 10;
+		}
+		if(h.x<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x=0;
+		}
 	}
 	
 	
