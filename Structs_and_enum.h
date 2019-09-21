@@ -10,7 +10,6 @@ struct hero
 	int y;
 	int health;
 	int speed;
-	bool isConfused;
 };
 
 enum tile_type
