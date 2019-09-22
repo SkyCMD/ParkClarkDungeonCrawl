@@ -3,6 +3,7 @@
 
 #include <string>
 
+
 struct hero
 {
 	std::string name;
@@ -30,3 +31,4 @@ enum tile_type
 	EXIT,
 };
 #endif
+
