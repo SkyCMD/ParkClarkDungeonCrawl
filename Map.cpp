@@ -49,7 +49,7 @@ void fillArray()
 		for(int j = 0; j < 10; j++)
 		{
 			if(i == 0 && j == 0){map[i][j] = entrance; continue;}
-			if(i == 29 && j == 9){map[i][j] = EXIT; continue;}
+			if(i == 29 && j == 9){map[i][j] = exit; continue;}
 			map[i][j] = randomInt();
 		}
 	}
