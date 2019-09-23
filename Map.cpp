@@ -10,7 +10,10 @@ This is the map file we are creating a char array to fill all of the field with 
 #include <iostream>
 #include <random>
 
+/*******************TODO***********************
+Make printArray put 'H' for where hero currently is? Should be doable without creating another enum.
 
+***********************************************/
 
 /*
 Here we created the map as a global two dimensional array, since we will never change its size.
@@ -32,27 +35,43 @@ enum tile_type empty = 		EMPTY;
 enum tile_type empty_explored = EMPTY_EXPLORED;
 
 //generates unbiased random number between specified range
-tile_type randomInt()
+tile_type randomInt(int x, int y)
 {
 	std::random_device rd;
 	std::mt19937 rng(rd());
-	std::uniform_int_distriubution<int> uni(0,5);
-
-	//if()
+	std::uniform_int_distriubution<int> uni(x,y);
 	int random_integer = uni(rng);
 }
 
 void fillArray()
 {
+	//fill entire array with empty tiles
 	for(int i = 0; i < 30; i++)
 	{
 		for(int j = 0; j < 10; j++)
 		{
-			if(i == 0 && j == 0){map[i][j] = entrance; continue;}
-			if(i == 29 && j == 9){map[i][j] = exit; continue;}
-			map[i][j] = randomInt();
+			map[i][j] = empty;
 		}
 	}
+
+	for(int i = 0; i < 30; i++)
+	{
+		for(int j = 0; j < 5; j++)
+		{
+			//random column to fill, to limit unbeated maps
+			int col = randomInt(0,9);		
+			
+			//generate random 'trap' tile to place
+			int r = randomInt(0, 4);
+			if(r == 0){map[i][col] = spike_trap;}
+			if(r == 1){map[i][col] = qs_trap;}
+			if(r == 2){map[i][col] = insult_trap;}
+			if(r == 3){map[i][col] = good_potion;}
+			if(r == 4){map[i][col] = bad_potion;}
+		}
+	}
+	map[0][0] = entrance;
+	map[29][9] = exit;
 }
 
 /*

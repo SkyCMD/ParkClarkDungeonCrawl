@@ -28,7 +28,7 @@ enum tile_type
 	BAD_POTION_EX,		//#	35
 	EMPTY_EX,		//SPACE	32
 	ENTRANCE,		//{ 	123
-	EXIT,
+	END,
 };
 #endif
 
