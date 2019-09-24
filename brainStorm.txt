@@ -4,3 +4,5 @@
 -funny traps
 -give hero HP
 -a test
+
+MAKE THE HERO GLOBAL! NOT THE STRUCT, BUT WHEN WE CREATE THE HERO =)
