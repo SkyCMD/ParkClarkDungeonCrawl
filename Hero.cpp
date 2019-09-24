@@ -19,6 +19,7 @@ void confuse(hero h){
 }
 
 void move(hero h){
+	//SKYLER: maybe nest all of this inside while loop, that only exits once the hero either dies or reaches exit?
 	cout<< "Please enter a NSEW direction to move"<<endl;
 	char step;
 	cin >> step;
@@ -30,7 +31,7 @@ void move(hero h){
 	
 	if(step == 'N'){
 		h.y-=h.speed;
-		if(h.y>30){
+		if(h.y>30){//SKYLER: does this need to be 29? Hero position should be array index, and it doesn't go past 29
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
 			h.y = 30;
