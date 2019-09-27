@@ -31,10 +31,10 @@ void move(hero h){
 	
 	if(step == 'N'){
 		h.y-=h.speed;
-		if(h.y>30){//SKYLER: does this need to be 29? Hero position should be array index, and it doesn't go past 29
+		if(h.y>29){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
-			h.y = 30;
+			h.y = 29;
 		}
 		if(h.y<0){
 			cout<<"Ouch, you ran into the wall"<<endl;
@@ -44,10 +44,10 @@ void move(hero h){
 	}
 	if(step == 'S'){
 		h.y+=h.speed;
-		if(h.y>30){
+		if(h.y>29){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
-			h.y = 30;
+			h.y = 29;
 		}
 		if(h.y<0){
 			cout<<"Ouch, you ran into the wall"<<endl;
@@ -57,10 +57,10 @@ void move(hero h){
 	}
 	if(step == 'E'){
 		h.x+=h.speed;
-		if(h.x>10){
+		if(h.x>9){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
-			h.x = 10;
+			h.x = 9;
 		}
 		if(h.x<0){
 			cout<<"Ouch, you ran into the wall"<<endl;
@@ -70,10 +70,10 @@ void move(hero h){
 	}
 	if(step == 'W'){
 		h.x-=h.speed;
-		if(h.x>10){
+		if(h.x>9){
 			cout<<"Ouch, you ran into the wall"<<endl;
 			take_damage(h);
-			h.x = 10;
+			h.x = 9;
 		}
 		if(h.x<0){
 			cout<<"Ouch, you ran into the wall"<<endl;
