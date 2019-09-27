@@ -21,13 +21,10 @@ enum tile_type empty_explored = EMPTY_EX;
 
 int randomInt(int x, int y)
 {
-	std::mt19937 mersenne(static_cast<std::mt19937::result_type>(std::time(nullptr)));
-	std::uniform_int_distribution<> die(x,y);
-	return die(mersenne);
-//	std::random_device rd;
-//	std::mt19937 eng(rd());
-//	std::uniform_int_distribution<> uni(x,y);
-//	return uni(eng);
+	std::random_device rd;
+	std::mt19937 eng(rd());
+	std::uniform_int_distribution<> uni(x,y);
+	return uni(eng);
 }
 
 void fillArray()
