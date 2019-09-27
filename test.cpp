@@ -1,6 +1,7 @@
 #include "Structs_and_enum.h"
 #include <random>
 #include <iostream>
+#include <ctime>
 
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
