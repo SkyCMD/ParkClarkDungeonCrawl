@@ -22,8 +22,8 @@ int randomInt(int x, int y)
 {
 	std::random_device rd;
 	std::mt19937 eng(rd());
-	std::uniform_int_distribution<> distr(x,y);
-	return distr(eng);
+	std::uniform_int_distribution<> uni(x,y);
+	return uni(eng);
 }
 
 void fillArray()
