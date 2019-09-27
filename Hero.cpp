@@ -1,7 +1,21 @@
 #include <string>
 #include <iostream>
 
+hero hero_select()
+{
+	std::cout << "Ready player 1? Select your hero.\n"
+	"A: Indiana Jones. Less health, average movement speed, chance to avoid traps.\n"
+	"B: Lightning McQueen. Average health, double movement speed.\n"
+	"C: Waxillium. Double health, average movement speed.\n"
+	"Please enter A, B, or C.\n\n";
 
+	cin >> char hero; 
+
+	if(hero == 'A'){hero h; h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
+	if(hero == 'B'){hero h; h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
+	if(hero == 'C'){hero h; h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+	return h;
+}
 
 // P -- Creating the methods that affect the hero by potions and traps.
 void take_damage(hero h){
@@ -25,7 +39,7 @@ void move(hero h){
 	cin >> step;
 	
 	while(step!='N'||step!'S'||step!='E'||step!='W'){
-		cout<< "That is not a valid direction, Learn Directions Better! Please enter a N,S,E, or W."<<endl;
+		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<endl;
 		cin>>step;
 	}
 	

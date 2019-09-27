@@ -13,6 +13,8 @@ Date: 	 21-Sep-2019
 
 int main()
 {
-	
+	hero h;
+	h = hero_select();
+	print_array(h);
 	return 0;
 }
