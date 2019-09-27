@@ -1,7 +1,6 @@
 #include "Structs_and_enum.h"
 #include <random>
 #include <iostream>
-#include <ctime>
 
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
@@ -27,6 +26,7 @@ int randomInt(int x, int y)
 	return uni(eng);
 }
 
+//fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
 void fillArray()
 {
 	//fill entire array with empty tiles

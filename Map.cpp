@@ -7,6 +7,7 @@ This is the map file we are creating a char array to fill all of the field with 
 
 */
 
+#include "Structs_and_enum.h"
 #include <iostream>
 #include <random>
 
@@ -40,7 +41,7 @@ int randomInt(int x, int y)
 	std::random_device rd;
 	std::mt19937 eng(rd());
 	std::uniform_int_distribution<> uni(x,y);
-	return distr(eng);
+	return uni(eng);
 }
 
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
