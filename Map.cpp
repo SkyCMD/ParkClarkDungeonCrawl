@@ -99,7 +99,7 @@ void found_good_potion(x,y){
 }
 
 void found_bad_potion(x,y){
-	map[x][y] = 35; // This is the pound sign
+	map[x][y] = 42; // This is the asterix
 }
 
 void set_entrance(){
@@ -109,37 +109,40 @@ void set_entrance(){
 // Parker: I have written up the code for printing the array. Here we are
 // using the various ASCII codes to print characters to the array where the 
 // enum type corresponds.
-void print_array(){
+void print_array(int x, int y){
 	
 	for(int i=0;i<=30;i++){
 		
 		for(int j = 0; j<=10;j++){
-			if(map[i][j].tile_type <= 5){
+			if(map[i][j] <= 5){
 				cout << char(35);
 			}
-			if(map[i][j].tile_type == 6){
+			if(map[i][j]== 6){
 				cout<<char(94);
 			}
-			if(map[i][j].tile_type == 7){
+			if(map[i][j] == 7){
 				cout<< char(33);
 			}
-			if(map[i][j].tile_type == 8){
+			if(map[i][j] == 8){
 				cout<<char(63);
 			}
-			if(map[i][j].tile_type == 9){
+			if(map[i][j] == 9){
 				cout<<char(43);
 			}
-			if(map[i][j].tile_type == 10){
+			if(map[i][j]== 10){
 				cout<<char(42);
 			}
-			if(map[i][j].tile_type == 11){
+			if(map[i][j] == 11){
 				cout<< char(32);
 			}
-			if(map[i][j].tile_type == 12){
+			if(map[i][j]== 12){
 				cout<<char(123);
 			}
-			if(map[i][j].tile_type == 13){
+			if(map[i][j]== 13){
 				cout<<"E";
+			}
+			if(map[i] == x&&map[j] == y){
+				cout<<"H";
 			}
 		}
 		cout<<" "<< endl;
