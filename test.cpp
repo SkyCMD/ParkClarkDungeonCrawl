@@ -1,6 +1,7 @@
 #include "Structs_and_enum.h"
 #include <random>
 #include <iostream>
+#include <ctime>
 
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
@@ -20,10 +21,13 @@ enum tile_type empty_explored = EMPTY_EX;
 
 int randomInt(int x, int y)
 {
-	std::random_device rd;
-	std::mt19937 eng(rd());
-	std::uniform_int_distribution<> uni(x,y);
-	return uni(eng);
+	std::mt19937 mersenne(static_cast<std::mt19937::result_type>(std::time(nullptr)));
+	std::uniform_int_distribution<> die(x,y);
+	return die(mersenne);
+//	std::random_device rd;
+//	std::mt19937 eng(rd());
+//	std::uniform_int_distribution<> uni(x,y);
+//	return uni(eng);
 }
 
 void fillArray()
