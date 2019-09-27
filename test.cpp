@@ -58,7 +58,7 @@ void fillArray()
 	map[29][9] = end;
 }
 using namespace std;
-void print_array(){
+void print_array(hero h){
 	
 	for(int i=0;i<30;i++){
 		
@@ -89,6 +89,9 @@ void print_array(){
 			}
 			if(map[i][j] == 13){
 				cout<<"E";
+			}
+			if(map[i] == h.x&&map[j] == h.y){
+				cout<<"H";
 			}
 		}
 		cout<<" "<< endl;
