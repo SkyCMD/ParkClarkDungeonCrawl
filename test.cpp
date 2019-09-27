@@ -1,6 +1,7 @@
 #include "Structs_and_enum.h"
 #include <random>
 #include <iostream>
+#include "Hero.h"
 
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
@@ -59,7 +60,8 @@ void fillArray()
 }
 using namespace std;
 void print_array(hero h){
-	
+	int x = h.x;
+	int y = h.y;
 	for(int i=0;i<30;i++){
 		
 		for(int j = 0; j<10;j++){
@@ -90,12 +92,95 @@ void print_array(hero h){
 			if(map[i][j] == 13){
 				cout<<"E";
 			}
-			if(map[i] == h.x&&map[j] == h.y){
+			
+			if((int)(map[i]) == y && (int)(map[j]) == x){
 				cout<<"H";
 			}
 		}
 		cout<<" "<< endl;
 	}
+}
+
+void take_damage(hero h){
+	h.health --;
+	cout<<"HP: "<<h.health<<endl;
+}
+
+void gain_health(hero h){
+	h.health ++;
+	cout<<"HP: "<<h.health<<endl;
+}
+
+void confuse(hero h){
+	h.speed*=-1;
+}
+
+void move_hero(hero& h){
+	
+	
+	cout<< "Please enter a NSEW direction to move"<<endl;
+	char step;
+	cin >> step;
+	
+	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
+		cout<< "That is not a valid direction, Learn Directions Better! Please enter a N,S,E, or W."<<endl;
+		cout<<step;
+		cin>>step;
+	}
+	
+	if(step == 'N'){
+		h.y-=h.speed;
+		if(h.y>29){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y = 29;
+		}
+		if(h.y<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y=0;
+		}
+	}
+	if(step == 'S'){
+		h.y+=h.speed;
+		if(h.y>29){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y = 29;
+		}
+		if(h.y<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.y=0;
+		}
+	}
+	if(step == 'E'){
+		h.x+=h.speed;
+		if(h.x>9){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x = 9;
+		}
+		if(h.x<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x=0;
+		}
+	}
+	if(step == 'W'){
+		h.x-=h.speed;
+		if(h.x>9){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x = 9;
+		}
+		if(h.x<0){
+			cout<<"Ouch, you ran into the wall"<<endl;
+			take_damage(h);
+			h.x=0;
+		}
+	}
+	
 }
 
 int main()
@@ -109,5 +194,21 @@ int main()
 		}
 		std::cout << "\n";
 	}
-	print_array();
+	hero h1;
+	h1.x =0;
+	h1.y = 0;
+	h1.health = 1000;
+	h1.speed = 2;
+	h1.name = "Alex";
+	print_array(h1);
+	
+	
+	
+	move_hero(h1);
+	print_array(h1);
+	cout<<h1.x<<endl;
+	move_hero(h1);
+	
+	print_array(h1);
+	
 }
