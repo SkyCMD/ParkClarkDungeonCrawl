@@ -56,6 +56,43 @@ void fillArray()
 	map[0][0] = entrance;
 	map[29][9] = end;
 }
+using namespace std;
+void print_array(){
+	
+	for(int i=0;i<30;i++){
+		
+		for(int j = 0; j<10;j++){
+			if(map[i][j] <= 5){
+				cout << char(35);
+			}
+			if(map[i][j] == 6){
+				cout<<char(94);
+			}
+			if(map[i][j] == 7){
+				cout<< char(33);
+			}
+			if(map[i][j] == 8){
+				cout<<char(63);
+			}
+			if(map[i][j] == 9){
+				cout<<char(43);
+			}
+			if(map[i][j] == 10){
+				cout<<char(42);
+			}
+			if(map[i][j] == 11){
+				cout<< char(32);
+			}
+			if(map[i][j] == 12){
+				cout<<char(123);
+			}
+			if(map[i][j] == 13){
+				cout<<"E";
+			}
+		}
+		cout<<" "<< endl;
+	}
+}
 
 int main()
 {
@@ -68,4 +105,5 @@ int main()
 		}
 		std::cout << "\n";
 	}
+	print_array();
 }

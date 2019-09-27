@@ -19,7 +19,7 @@ void confuse(hero h){
 }
 
 void move(hero h){
-	//SKYLER: maybe nest all of this inside while loop, that only exits once the hero either dies or reaches exit?
+	
 	cout<< "Please enter a NSEW direction to move"<<endl;
 	char step;
 	cin >> step;

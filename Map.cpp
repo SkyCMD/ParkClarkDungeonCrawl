@@ -105,3 +105,43 @@ void found_bad_potion(x,y){
 void set_entrance(){
 	map[0][0] = 91; // This is the open bracket for the start space
 }
+
+// Parker: I have written up the code for printing the array. Here we are
+// using the various ASCII codes to print characters to the array where the 
+// enum type corresponds.
+void print_array(){
+	
+	for(int i=0;i<=30;i++){
+		
+		for(int j = 0; j<=10;j++){
+			if(map[i][j].tile_type <= 5){
+				cout << char(35);
+			}
+			if(map[i][j].tile_type == 6){
+				cout<<char(94);
+			}
+			if(map[i][j].tile_type == 7){
+				cout<< char(33);
+			}
+			if(map[i][j].tile_type == 8){
+				cout<<char(63);
+			}
+			if(map[i][j].tile_type == 9){
+				cout<<char(43);
+			}
+			if(map[i][j].tile_type == 10){
+				cout<<char(42);
+			}
+			if(map[i][j].tile_type == 11){
+				cout<< char(32);
+			}
+			if(map[i][j].tile_type == 12){
+				cout<<char(123);
+			}
+			if(map[i][j].tile_type == 13){
+				cout<<"E";
+			}
+		}
+		cout<<" "<< endl;
+	}
+}
