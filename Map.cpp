@@ -110,11 +110,12 @@ void set_entrance(){
 // Parker: I have written up the code for printing the array. Here we are
 // using the various ASCII codes to print characters to the array where the 
 // enum type corresponds.
-void print_array(int x, int y){
-	
+void print_array(hero h){
+	int x = h.x;
+	int y = h.y;
 	for(int i=0;i<=30;i++){
 		
-		for(int j = 0; j<=10;j++){
+		for(int j = 0; j<10;j++){
 			if(map[i][j] <= 5){
 				cout << char(35);
 			}
@@ -142,10 +143,12 @@ void print_array(int x, int y){
 			if(map[i][j]== 13){
 				cout<<"E";
 			}
-			if(map[i] == x&&map[j] == y){
-				cout<<"H";
-			}
+
+	                if((int)(map[i]) == y && (int)(map[j]) == x){
+                                cout<<"H";
+                        }
+
 		}
-		cout<<" "<< endl;
+		std::cout<<" "<< endl;
 	}
 }

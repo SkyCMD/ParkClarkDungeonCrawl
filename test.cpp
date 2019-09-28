@@ -26,7 +26,7 @@ int randomInt(int x, int y)
 	std::uniform_int_distribution<> uni(x,y);
 	return uni(eng);
 }
-
+//////MAPS.CPP METHODS
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
 void fillArray()
 {
@@ -100,7 +100,7 @@ void print_array(hero h){
 		cout<<" "<< endl;
 	}
 }
-
+///////HERO.CPP METHODS
 void take_damage(hero h){
 	h.health --;
 	cout<<"HP: "<<h.health<<endl;
@@ -123,7 +123,7 @@ void move_hero(hero& h){
 	cin >> step;
 	
 	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
-		cout<< "That is not a valid direction, Learn Directions Better! Please enter a N,S,E, or W."<<endl;
+		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<endl;
 		cout<<step;
 		cin>>step;
 	}
