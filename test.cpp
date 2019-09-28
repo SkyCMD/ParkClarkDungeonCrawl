@@ -65,6 +65,11 @@ void print_array(hero h){
 	for(int i=0;i<30;i++){
 		
 		for(int j = 0; j<10;j++){
+			
+			if(map[i][j] == map[h.y][h.x]){
+				cout<<"H";
+				continue;
+			}
 			if(map[i][j] <= 5){
 				cout << char(35);
 			}
@@ -93,9 +98,7 @@ void print_array(hero h){
 				cout<<"E";
 			}
 			
-			if((int)(map[i]) == y && (int)(map[j]) == x){
-				cout<<"H";
-			}
+			
 		}
 		cout<<" "<< endl;
 	}
