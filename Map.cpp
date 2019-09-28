@@ -175,7 +175,7 @@ void move_hero(hero& h){
 	std::cin >> step;
 	
 	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
-		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
+		std::cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
 		std::cout<<step;
 		std::cin>>step;
 	}
