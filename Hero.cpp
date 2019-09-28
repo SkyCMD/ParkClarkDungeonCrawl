@@ -9,12 +9,12 @@ hero hero_select()
 	"B: Lightning McQueen. Average health, double movement speed.\n"
 	"C: Waxillium. Double health, average movement speed.\n"
 	"Please enter A, B, or C.\n\n";
+	char mander; 
+	std::cin >> mander; 
 
-	std::cin >> char var; 
-
-	if(var == 'A'){hero h; h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
-	if(var == 'B'){hero h; h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
-	if(var == 'C'){hero h; h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+	if(mander == 'A'){hero h; h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
+	if(mander == 'B'){hero h; h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
+	if(mander == 'C'){hero h; h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
 	return h;
 }
 
