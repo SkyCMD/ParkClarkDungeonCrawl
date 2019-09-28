@@ -9,7 +9,7 @@ hero hero_select()
 	"C: Waxillium. Double health, average movement speed.\n"
 	"Please enter A, B, or C.\n\n";
 
-	cin >> char hero; 
+	std::cin >> char hero; 
 
 	if(hero == 'A'){hero h; h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
 	if(hero == 'B'){hero h; h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
@@ -20,12 +20,12 @@ hero hero_select()
 // P -- Creating the methods that affect the hero by potions and traps.
 void take_damage(hero h){
 	h.health --;
-	cout<<"HP: "<<h.health<<endl;
+	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
 void gain_health(hero h){
 	h.health ++;
-	cout<<"HP: "<<h.health<<endl;
+	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
 void confuse(hero h){
@@ -35,25 +35,25 @@ void confuse(hero h){
 void move_hero(hero& h){
 	
 	
-	cout<< "Please enter a NSEW direction to move"<<endl;
+	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
 	char step;
-	cin >> step;
+	std::cin >> step;
 	
 	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
-		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<endl;
-		cout<<step;
-		cin>>step;
+		std::cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
+		std::cout<<step;
+		std::cin>>step;
 	}
 	
 	if(step == 'N'){
 		h.y-=h.speed;
 		if(h.y>29){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.y=0;
 		}
@@ -61,12 +61,12 @@ void move_hero(hero& h){
 	if(step == 'S'){
 		h.y+=h.speed;
 		if(h.y>29){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.y=0;
 		}
@@ -74,12 +74,12 @@ void move_hero(hero& h){
 	if(step == 'E'){
 		h.x+=h.speed;
 		if(h.x>9){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.x=0;
 		}
@@ -87,12 +87,12 @@ void move_hero(hero& h){
 	if(step == 'W'){
 		h.x-=h.speed;
 		if(h.x>9){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
 			take_damage(h);
 			h.x=0;
 		}
