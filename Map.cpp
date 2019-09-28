@@ -21,7 +21,7 @@ Here we created the map as a global two dimensional array, since we will never c
 */
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
-enum tile_type exit = 		EXIT;
+enum tile_type end = 		END;
 enum tile_type spike_trap = 	SPIKE_TRAP;
 enum tile_type spike_trap_ex = 	SPIKE_TRAP_EX;
 enum tile_type qs_trap = 	QS_TRAP;
@@ -33,7 +33,7 @@ enum tile_type good_potion_ex = GOOD_POTION_EX;
 enum tile_type bad_potion = 	BAD_POTION;
 enum tile_type bad_potion_ex = 	BAD_POTION_EX;
 enum tile_type empty = 		EMPTY;
-enum tile_type empty_explored = EMPTY_EXPLORED;
+enum tile_type empty_explored = EMPTY_EX;
 
 //generates unbiased random number between specified range
 int randomInt(int x, int y)
@@ -74,7 +74,7 @@ void fillArray()
 	}
 	//place entrance and exit
 	map[0][0] = entrance;
-	map[29][9] = exit;
+	map[29][9] = end;
 }
 
 /*

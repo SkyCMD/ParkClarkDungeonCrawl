@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include "Structs_and_enum.h"
 
 hero hero_select()
 {
