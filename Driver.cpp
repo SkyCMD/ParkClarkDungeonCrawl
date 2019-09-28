@@ -13,6 +13,7 @@ Date: 	 21-Sep-2019
 
 int main()
 {
+	fillArray();
 	hero h;
 	h = hero_select();
 	print_array(h);
