@@ -111,44 +111,126 @@ void set_entrance(){
 // using the various ASCII codes to print characters to the array where the 
 // enum type corresponds.
 void print_array(hero h){
-	int x = h.x;
-	int y = h.y;
-	for(int i=0;i<=30;i++){
+	for(int i=0;i<30;i++){
 		
 		for(int j = 0; j<10;j++){
-			if(map[i][j] <= 5){
-				cout << char(35);
+			
+			if(map[i][j] == map[h.y][h.x]){
+				std::cout<<"H";
+				continue;
 			}
-			if(map[i][j]== 6){
-				cout<<char(94);
+			if(map[i][j] <= 5){
+				std::cout << char(35);
+			}
+			if(map[i][j] == 6){
+				std::cout<<char(94);
 			}
 			if(map[i][j] == 7){
-				cout<< char(33);
+				std::cout<< char(33);
 			}
 			if(map[i][j] == 8){
-				cout<<char(63);
+				std::cout<<char(63);
 			}
 			if(map[i][j] == 9){
-				cout<<char(43);
+				std::cout<<char(43);
 			}
-			if(map[i][j]== 10){
-				cout<<char(42);
+			if(map[i][j] == 10){
+				std::cout<<char(42);
 			}
 			if(map[i][j] == 11){
-				cout<< char(32);
+				std::cout<< char(32);
 			}
-			if(map[i][j]== 12){
-				cout<<char(123);
+			if(map[i][j] == 12){
+				std::cout<<char(123);
 			}
-			if(map[i][j]== 13){
-				cout<<"E";
+			if(map[i][j] == 13){
+				std::cout<<"E";
 			}
-
-	                if((int)(map[i]) == y && (int)(map[j]) == x){
-                                cout<<"H";
-                        }
-
+			
+			
 		}
-		std::cout<<" "<< endl;
+		std::cout<<" "<< std::endl;
 	}
+}
+
+void take_damage(hero h){
+	h.health --;
+	std::cout<<"HP: "<<h.health<<endl;
+}
+
+void gain_health(hero h){
+	h.health ++;
+	std::cout<<"HP: "<<h.health<<endl;
+}
+
+void confuse(hero h){
+	h.speed*=-1;
+}
+
+void move_hero(hero& h){
+	
+	
+	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
+	char step;
+	std::cin >> step;
+	
+	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
+		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
+		std::cout<<step;
+		std::cin>>step;
+	}
+	
+	if(step == 'N'){
+		h.y-=h.speed;
+		if(h.y>29){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.y = 29;
+		}
+		if(h.y<0){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.y=0;
+		}
+	}
+	if(step == 'S'){
+		h.y+=h.speed;
+		if(h.y>29){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.y = 29;
+		}
+		if(h.y<0){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.y=0;
+		}
+	}
+	if(step == 'E'){
+		h.x+=h.speed;
+		if(h.x>9){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.x = 9;
+		}
+		if(h.x<0){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.x=0;
+		}
+	}
+	if(step == 'W'){
+		h.x-=h.speed;
+		if(h.x>9){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.x = 9;
+		}
+		if(h.x<0){
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			take_damage(h);
+			h.x=0;
+		}
+	}
+	
 }
