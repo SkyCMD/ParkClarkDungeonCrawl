@@ -32,14 +32,16 @@ void confuse(hero h){
 	h.speed*=-1;
 }
 
-void move(hero h){
+void move_hero(hero& h){
+	
 	
 	cout<< "Please enter a NSEW direction to move"<<endl;
 	char step;
 	cin >> step;
 	
-	while(step!='N'||step!'S'||step!='E'||step!='W'){
+	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
 		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<endl;
+		cout<<step;
 		cin>>step;
 	}
 	
@@ -95,6 +97,5 @@ void move(hero h){
 			h.x=0;
 		}
 	}
-	
 	
 }
