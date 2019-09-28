@@ -155,12 +155,12 @@ void print_array(hero h){
 
 void take_damage(hero h){
 	h.health --;
-	std::cout<<"HP: "<<h.health<<endl;
+	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
 void gain_health(hero h){
 	h.health ++;
-	std::cout<<"HP: "<<h.health<<endl;
+	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
 void confuse(hero h){
