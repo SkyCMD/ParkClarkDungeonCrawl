@@ -153,20 +153,6 @@ void print_array(hero h){
 	}
 }
 
-void take_damage(hero h){
-	h.health --;
-	std::cout<<"HP: "<<h.health<<std::endl;
-}
-
-void gain_health(hero h){
-	h.health ++;
-	std::cout<<"HP: "<<h.health<<std::endl;
-}
-
-void confuse(hero h){
-	h.speed*=-1;
-}
-
 void move_hero(hero& h){
 	
 	
