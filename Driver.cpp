@@ -17,13 +17,18 @@ int main()
 
 	
 	hero h;
+	h.name = "Hero1";
+	h.health =1;
+	h.speed =2;
+	h.x=0;
+	h.y=0;
 	fillArray();
 	h = hero_select(h);
 	
 	
 	while(h.health > 0){
 		print_array(h);
-		move_hero(h);
+		h = move_hero(h);
 		int temp = get_tile(h);
 		if(temp == 13)
 		{
@@ -32,6 +37,7 @@ int main()
 		if(temp == 0)
 		{
 			found_spike(h);
+			// h = take_damage(h);
 		}
 		if(temp == 1){
 			found_qs(h);

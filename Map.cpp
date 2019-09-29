@@ -84,23 +84,23 @@ void found_empty(hero h){
 	map[h.y][h.x] = empty_ex;	// This is a space for empty
 }
 
-void found_spike(hero &h){
+void found_spike(hero h){
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
 	//take_damage(h);
 }
 
-void found_qs(hero &h){
+void found_qs(hero h){
 	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
 }
 
-void found_insult(hero &h){
+void found_insult(hero h){
 	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
 }
-void found_good_potion(hero &h){
+void found_good_potion(hero h){
 	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
 }
 
-void found_bad_potion(hero &h){
+void found_bad_potion(hero h){
 	map[h.y][h.x] = bad_potion_ex; // This is the asterix
 }
 
@@ -152,6 +152,7 @@ void print_array(hero h){
 		}
 		std::cout<<" "<< std::endl;
 	}
+	
 }
 
 int get_tile(hero h)

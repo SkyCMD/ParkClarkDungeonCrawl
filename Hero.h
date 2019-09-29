@@ -5,8 +5,7 @@ void take_damage(hero);
 void gain_health(hero);
 void confuse(hero);
 hero hero_select(hero);
-
-void move_hero(hero); // Do Not Use!
+hero move_hero(hero); // Do Not Use!
 
 
 #endif

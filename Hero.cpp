@@ -21,26 +21,30 @@ hero hero_select(hero h)
 	if(mander == 'A'){h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
 	if(mander == 'B'){h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
 	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+	
 	return h;
 
 }
 
 // P -- Creating the methods that affect the hero by potions and traps.
-void take_damage(hero& h){
+hero take_damage(hero h){
 	h.health --;
 	std::cout<<"HP: "<<h.health<<std::endl;
+	return h;
 }
 
-void gain_health(hero& h){
+hero gain_health(hero h){
 	h.health ++;
 	std::cout<<"HP: "<<h.health<<std::endl;
+	return h;
 }
 
-void confuse(hero& h){
+hero confuse(hero h){
 	h.speed*=-1;
+	return h;
 }
 
-void move_hero(hero& h){
+hero move_hero(hero h){
 	
 	
 	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
@@ -104,4 +108,5 @@ void move_hero(hero& h){
 			h.x=0;
 		}
 	}
+	return h;
 }
