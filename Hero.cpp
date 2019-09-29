@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-void hero_select(hero &h)
+hero hero_select(hero h)
 {
 	std::cout << "Ready player 1? Select your hero.\n"
 	"A: Indiana Jones. Less health, average movement speed, chance to avoid traps.\n"
@@ -16,6 +16,7 @@ void hero_select(hero &h)
 	if(mander == 'A'){h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
 	if(mander == 'B'){h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
 	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+	return h;
 }
 
 // P -- Creating the methods that affect the hero by potions and traps.

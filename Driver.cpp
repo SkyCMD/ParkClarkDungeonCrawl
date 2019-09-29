@@ -11,12 +11,11 @@ Date: 	 21-Sep-2019
 #include "Hero.h"
 #include <iostream>
 
-hero h;
-
 int main()
 {
+	hero h;
 	fillArray();
-	hero_select(h);
+	h = hero_select(h);
 	print_array(h);
 	return 0;
 }
