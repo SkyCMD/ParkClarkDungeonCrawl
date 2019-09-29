@@ -12,6 +12,7 @@ struct hero
 	int speed;
 };
 
+
 enum tile_type
 {
 	SPIKE_TRAP, 	//0
