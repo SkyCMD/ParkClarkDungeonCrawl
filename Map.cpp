@@ -80,26 +80,26 @@ void fillArray()
 /*
 Here we are creating the explored room method to change the tile. Need to add change of status to tiles.
 */
-void found_empty(x,y){
+void found_empty(int x,int y){
 	map[x][y] = 32;	// This is a space for empty
 }
 
-void found_spike(x,y){
+void found_spike(int x,int y){
 	map[x][y] = 94;	 // This is a carrot for spike
 }
 
-void found_qs(x,y){
+void found_qs(int x,int y){
 	map[x][y] = 33;	// This is and exclamation mark
 }
 
-void found_insult(x,y){
+void found_insult(int x,int y){
 	map[x][y] = 63;	// This is the question mark
 }
-void found_good_potion(x,y){
+void found_good_potion(int x,int y){
 	map[x][y] = 43;	// This is the plus signal
 }
 
-void found_bad_potion(x,y){
+void found_bad_potion(int x,int y){
 	map[x][y] = 42; // This is the asterix
 }
 

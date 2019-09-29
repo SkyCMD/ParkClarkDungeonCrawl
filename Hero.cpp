@@ -1,8 +1,9 @@
+#include "Structs_and_enum.h"
 #include <string>
 #include <iostream>
-#include "Structs_and_enum.h"
 
-hero& hero_select()
+
+hero hero_select()
 {
 	std::cout << "Ready player 1? Select your hero.\n"
 	"A: Indiana Jones. Less health, average movement speed, chance to avoid traps.\n"
