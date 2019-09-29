@@ -18,7 +18,7 @@ int main()
 	
 	hero h;
 	fillArray();
-	h = hero_select(h);
+	hero_select(h);
 	
 	
 	while(h.health > 0){
