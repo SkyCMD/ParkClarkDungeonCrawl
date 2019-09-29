@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 struct hero
 {
 	std::string name;

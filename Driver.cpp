@@ -10,6 +10,7 @@ Date: 	 21-Sep-2019
 #include "Map.h"
 #include "Hero.h"
 #include <iostream>
+#include <cstdlib>
 
 int main()
 {
@@ -20,10 +21,14 @@ int main()
 	h = hero_select(h);
 	
 	
-	while(h.health > 0 && map[h.y][h.x] != map[29][9]){
+	while(h.health > 0){
 		print_array(h);
 		move_hero(h);
 		int temp = get_tile(h);
+		if(temp == 13)
+		{
+			exit(0);
+		}
 		if(temp == 0)
 		{
 			found_spike(h);
