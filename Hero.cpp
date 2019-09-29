@@ -13,10 +13,16 @@ hero hero_select(hero h)
 	char mander; 
 	std::cin >> mander; 
 
+	while(mander!= 'A' && mander != 'B' && mander != 'C')
+	{
+		std::cout << "Please eneter a valid selection.\n";
+		std::cin >> mander;
+	}
 	if(mander == 'A'){h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
 	if(mander == 'B'){h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
 	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
 	return h;
+
 }
 
 // P -- Creating the methods that affect the hero by potions and traps.
@@ -43,7 +49,6 @@ void move_hero(hero& h){
 	
 	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
 		std::cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
-		std::cout<<step;
 		std::cin>>step;
 	}
 	

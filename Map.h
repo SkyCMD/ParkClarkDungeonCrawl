@@ -12,5 +12,6 @@ void found_insult(int,int);
 void found_good_potion(int,int);
 void found_bad_potion(int,int);
 void found_set_entrance(int,int);
+int get_tile(hero);
 
 #endif

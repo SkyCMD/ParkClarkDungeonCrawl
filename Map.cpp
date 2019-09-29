@@ -153,3 +153,8 @@ void print_array(hero h){
 		std::cout<<" "<< std::endl;
 	}
 }
+
+int get_tile(hero h)
+{
+	return map[h.y][h.x];
+}
