@@ -26,17 +26,17 @@ hero hero_select(hero h)
 }
 
 // P -- Creating the methods that affect the hero by potions and traps.
-void take_damage(hero h){
+void take_damage(hero& h){
 	h.health --;
 	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
-void gain_health(hero h){
+void gain_health(hero& h){
 	h.health ++;
 	std::cout<<"HP: "<<h.health<<std::endl;
 }
 
-void confuse(hero h){
+void confuse(hero& h){
 	h.speed*=-1;
 }
 

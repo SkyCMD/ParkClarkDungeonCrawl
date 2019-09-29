@@ -78,29 +78,30 @@ void fillArray()
 }
 
 /*
-Here we are creating the explored room method to change the tile. Need to add change of status to tiles.
+Here we are creating the explored room method of change the tile. Need to add change of status to tiles.
 */
-void found_empty(int x,int y){
-	map[x][y] = 32;	// This is a space for empty
+void found_empty(hero h){
+	map[h.y][h.x] = empty_ex;	// This is a space for empty
 }
 
-void found_spike(int x,int y){
-	map[x][y] = 94;	 // This is a carrot for spike
+void found_spike(hero &h){
+	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
+	//take_damage(h);
 }
 
-void found_qs(int x,int y){
-	map[x][y] = 33;	// This is and exclamation mark
+void found_qs(hero &h){
+	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
 }
 
-void found_insult(int x,int y){
-	map[x][y] = 63;	// This is the question mark
+void found_insult(hero &h){
+	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
 }
-void found_good_potion(int x,int y){
-	map[x][y] = 43;	// This is the plus signal
+void found_good_potion(hero &h){
+	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
 }
 
-void found_bad_potion(int x,int y){
-	map[x][y] = 42; // This is the asterix
+void found_bad_potion(hero &h){
+	map[h.y][h.x] = bad_potion_ex; // This is the asterix
 }
 
 void set_entrance(){
