@@ -33,7 +33,7 @@ enum tile_type good_potion_ex = GOOD_POTION_EX;
 enum tile_type bad_potion = 	BAD_POTION;
 enum tile_type bad_potion_ex = 	BAD_POTION_EX;
 enum tile_type empty = 		EMPTY;
-enum tile_type empty_ex = EMPTY_EX;
+enum tile_type empty_ex = 	EMPTY_EX;
 
 //generates unbiased random number between specified range
 int randomInt(int x, int y)
