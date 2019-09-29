@@ -19,7 +19,6 @@ Make printArray put 'H' for where hero currently is? Should be doable without cr
 /*
 Here we created the map as a global two dimensional array, since we will never change its size.
 */
-int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
 enum tile_type end = 		END;
 enum tile_type spike_trap = 	SPIKE_TRAP;
