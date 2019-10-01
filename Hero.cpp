@@ -29,7 +29,7 @@ hero hero_select()
 // P -- Creating the methods that affect the hero by potions and traps.
 hero take_damage(hero h){
 	h.health --;
-	std::cout<<"HP: "<<h.health<<std::endl;
+	
 	return h;
 }
 
@@ -60,12 +60,12 @@ hero move_hero(hero h){
 		h.y-=h.speed;
 		if(h.y>29){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.y=0;
 		}
 	}
@@ -73,12 +73,12 @@ hero move_hero(hero h){
 		h.y+=h.speed;
 		if(h.y>29){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.y=0;
 		}
 	}
@@ -86,12 +86,12 @@ hero move_hero(hero h){
 		h.x+=h.speed;
 		if(h.x>9){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.x=0;
 		}
 	}
@@ -99,12 +99,12 @@ hero move_hero(hero h){
 		h.x-=h.speed;
 		if(h.x>9){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
 			std::cout<<"Ouch, you ran into the wall"<<std::endl;
-			take_damage(h);
+			h = take_damage(h);
 			h.x=0;
 		}
 	}

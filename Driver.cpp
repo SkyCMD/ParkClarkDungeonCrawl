@@ -19,6 +19,7 @@ int main()
 	hero h;
 	h = hero_select();
 	fillArray();
+	h.health = 1;
 	 while(h.health > 0){
 		 print_array(h);
 		 h = move_hero(h);
@@ -50,6 +51,7 @@ int main()
 		 {
 			 found_empty(h);
 		 }
+		 std::cout<<"HP: "<<h.health<<std::endl;
 	 }
 
 	std::cout<<"You win maybe";
