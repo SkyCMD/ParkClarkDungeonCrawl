@@ -29,26 +29,26 @@ int main()
 		 }
 		 if(temp == 0)
 		 {
-			 found_spike(h);
+			 h = found_spike(h);
 		 }
 		 if(temp == 1){
-			 found_qs(h);
+			 h = found_qs(h);
 		 }
 		 if(temp == 2)
 		 {
-			 found_insult(h);
+			 h = found_insult(h);
 		 }
 		 if(temp == 3)
 		 {
-			 found_good_potion(h);
+			 h = found_good_potion(h);
 		 }
 		 if(temp == 4)
 		 {
-			 found_bad_potion(h);
+			 h = found_bad_potion(h);
 		 }
 		 if(temp == 5)
 		 {
-			 found_empty(h);
+			 h = found_empty(h);
 		 }
 	 }
 

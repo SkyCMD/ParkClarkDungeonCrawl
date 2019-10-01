@@ -40,7 +40,7 @@ enum tile_type empty_ex = 	EMPTY_EX;
 //generates unbiased random number between specified range
 int randomInt(int x, int y)
 {
-	srand(time(NULL));
+	//srand(time(NULL));
 	std::random_device rd;
 	std::mt19937 eng(rd());
 	std::uniform_int_distribution<> uni(x,y);
