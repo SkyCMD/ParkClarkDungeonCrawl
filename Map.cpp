@@ -8,6 +8,7 @@ This is the map file we are creating a char array to fill all of the field with 
 */
 
 #include "Structs_and_enum.h"
+#include "Hero.h"
 #include <iostream>
 #include <random>
 #include <ctime>
@@ -87,24 +88,28 @@ void found_empty(hero h){
 	map[h.y][h.x] = empty_ex;	// This is a space for empty
 }
 
-void found_spike(hero h){
+hero found_spike(hero h){
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
-	//take_damage(h);
+	h = take_damage(h);
+	return h;
 }
 
-void found_qs(hero h){
+hero found_qs(hero h){
 	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
+	return take_damage(h);			// come back and change
 }
 
 void found_insult(hero h){
 	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
 }
-void found_good_potion(hero h){
+hero found_good_potion(hero h){
 	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
+	return gain_health(h);
 }
 
-void found_bad_potion(hero h){
+hero found_bad_potion(hero h){
 	map[h.y][h.x] = bad_potion_ex; // This is the asterix
+	return confuse(h);
 }
 
 void set_entrance(){
