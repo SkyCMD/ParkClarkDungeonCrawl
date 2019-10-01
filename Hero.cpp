@@ -3,8 +3,9 @@
 #include <iostream>
 
 
-hero hero_select(hero h)
+hero hero_select()
 {
+	hero h;
 	std::cout << "Ready player 1? Select your hero.\n"
 	"A: Indiana Jones. Less health, average movement speed, chance to avoid traps.\n"
 	"B: Lightning McQueen. Average health, double movement speed.\n"
@@ -46,9 +47,6 @@ hero confuse(hero h){
 
 hero move_hero(hero h){
 
-
-	
-	
 	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
 	char step;
 	std::cin >> step;
