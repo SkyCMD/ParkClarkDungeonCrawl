@@ -11,10 +11,11 @@ Date: 	 21-Sep-2019
 #include "Hero.h"
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 int main()
 {
-
+	srand(time(NULL));
 	
 	hero h;
 	h = hero_select();
