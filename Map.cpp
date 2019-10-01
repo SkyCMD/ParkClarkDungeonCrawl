@@ -39,15 +39,18 @@ enum tile_type empty = 		EMPTY;
 enum tile_type empty_ex = 	EMPTY_EX;
 
 //generates unbiased random number between specified range
-int randomInt(int x, int y)
-{
-	//srand(time(NULL));
-	std::random_device rd;
-	std::mt19937 eng(rd());
-	std::uniform_int_distribution<> uni(x,y);
-	return uni(eng);
-}
+// int randomInt(int x, int y)
+// {
+	// srand(time(NULL));  // was commented out before
+	// std::random_device rd;
+	// std::mt19937 eng(rd());
+	// std::uniform_int_distribution<> uni(x,y);
+	// return uni(eng);
+// }
 
+int randomInt(int x){
+	return (int)rand()%x+1;	
+}
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
 void fillArray()
 {
@@ -65,10 +68,10 @@ void fillArray()
 		for(int j = 0; j < 5; j++)
 		{
 			//random column to fill, up to 5 special tiles per row, limits unbeatable maps
-			int col = randomInt(0,9);		
+			int col = randomInt(9);		
 			
 			//generate random 'trap' tile to place
-			int r = randomInt(0, 4);
+			int r = randomInt(4);
 			if(r == 0){map[i][col] = spike_trap;}
 			if(r == 1){map[i][col] = qs_trap;}
 			if(r == 2){map[i][col] = insult_trap;}

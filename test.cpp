@@ -2,6 +2,7 @@
 #include <random>
 #include <iostream>
 #include "Hero.h"
+#include "Map.h"
 
 int map[30][10];
 enum tile_type entrance = 	ENTRANCE;
@@ -28,6 +29,16 @@ int randomInt(int x, int y)
 }
 //////MAPS.CPP METHODS
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
+int randomInt(int x, int y)
+{
+	//srand(time(NULL));
+	std::random_device rd;
+	std::mt19937 eng(rd());
+	std::uniform_int_distribution<> uni(x,y);
+	return uni(eng);
+}
+
+//fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
 void fillArray()
 {
 	//fill entire array with empty tiles
@@ -43,7 +54,7 @@ void fillArray()
 	{
 		for(int j = 0; j < 5; j++)
 		{
-			//random column to fill, to limit unbeated maps
+			//random column to fill, up to 5 special tiles per row, limits unbeatable maps
 			int col = randomInt(0,9);		
 			
 			//generate random 'trap' tile to place
@@ -55,135 +66,202 @@ void fillArray()
 			if(r == 4){map[i][col] = bad_potion;}
 		}
 	}
+	//place entrance and exit
 	map[0][0] = entrance;
 	map[29][9] = end;
 }
-using namespace std;
+
+/*
+Here we are creating the explored room method of change the tile. Need to add change of status to tiles.
+*/
+void found_empty(hero h){
+	map[h.y][h.x] = empty_ex;	// This is a space for empty
+}
+
+hero found_spike(hero h){
+	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
+	h = take_damage(h);
+	return h;
+}
+
+hero found_qs(hero h){
+	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
+	return take_damage(h);			// come back and change
+}
+
+void found_insult(hero h){
+	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
+}
+hero found_good_potion(hero h){
+	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
+	return gain_health(h);
+}
+
+hero found_bad_potion(hero h){
+	map[h.y][h.x] = bad_potion_ex; // This is the asterix
+	return confuse(h);
+}
+
+void set_entrance(){
+	map[0][0] = 91; // This is the open bracket for the start space
+}
+
+// Parker: I have written up the code for printing the array. Here we are
+// using the various ASCII codes to print characters to the array where the 
+// enum type corresponds.
 void print_array(hero h){
-	int x = h.x;
-	int y = h.y;
 	for(int i=0;i<30;i++){
-		
 		for(int j = 0; j<10;j++){
-			
-			if(map[i][j] == map[h.y][h.x]){
-				cout<<"H";
+			if(i == h.y && j == h.x){
+				std::cout<<"H";
 				continue;
 			}
 			if(map[i][j] <= 5){
-				cout << char(35);
+				std::cout << char(35);
 			}
 			if(map[i][j] == 6){
-				cout<<char(94);
+				std::cout<<char(94);
 			}
 			if(map[i][j] == 7){
-				cout<< char(33);
+				std::cout<< char(33);
 			}
 			if(map[i][j] == 8){
-				cout<<char(63);
+				std::cout<<char(63);
 			}
 			if(map[i][j] == 9){
-				cout<<char(43);
+				std::cout<<char(43);
 			}
 			if(map[i][j] == 10){
-				cout<<char(42);
+				std::cout<<char(42);
 			}
 			if(map[i][j] == 11){
-				cout<< char(32);
+				std::cout<< char(32);
 			}
 			if(map[i][j] == 12){
-				cout<<char(123);
+				std::cout<<char(123);
 			}
 			if(map[i][j] == 13){
-				cout<<"E";
+				std::cout<<"E";
 			}
 			
 			
 		}
-		cout<<" "<< endl;
+		std::cout<<" "<< std::endl;
 	}
+	
+}
+
+int get_tile(hero h)
+{
+	return map[h.y][h.x];
 }
 ///////HERO.CPP METHODS
-void take_damage(hero h){
+hero hero_select()
+{
+	hero h;
+	std::cout << "Ready player 1? Select your hero.\n"
+	"A: Indiana Jones. Less health, average movement speed, chance to avoid traps.\n"
+	"B: Lightning McQueen. Average health, double movement speed.\n"
+	"C: Waxillium. Double health, average movement speed.\n"
+	"Please enter A, B, or C.\n\n";
+	char mander; 
+	std::cin >> mander; 
+
+	while(mander!= 'A' && mander != 'B' && mander != 'C')
+	{
+		std::cout << "Please eneter a valid selection.\n";
+		std::cin >> mander;
+	}
+	if(mander == 'A'){h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
+	if(mander == 'B'){h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
+	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+
+	return h;
+}
+
+// P -- Creating the methods that affect the hero by potions and traps.
+hero take_damage(hero h){
 	h.health --;
-	cout<<"HP: "<<h.health<<endl;
+	
+	return h;
 }
 
-void gain_health(hero h){
+hero gain_health(hero h){
 	h.health ++;
-	cout<<"HP: "<<h.health<<endl;
+	std::cout<<"HP: "<<h.health<<std::endl;
+	return h;
 }
 
-void confuse(hero h){
+hero confuse(hero h){
 	h.speed*=-1;
+	return h;
 }
 
-void move_hero(hero& h){
-	
-	
-	cout<< "Please enter a NSEW direction to move"<<endl;
+
+hero move_hero(hero h){
+
+	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
 	char step;
-	cin >> step;
+	std::cin >> step;
 	
 	while(step!= 'N' && step!= 'S' && step!= 'E' && step!='W'){
-		cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<endl;
-		cout<<step;
-		cin>>step;
+		std::cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
+		std::cin>>step;
 	}
 	
 	if(step == 'N'){
 		h.y-=h.speed;
 		if(h.y>29){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.y=0;
 		}
 	}
 	if(step == 'S'){
 		h.y+=h.speed;
 		if(h.y>29){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.y = 29;
 		}
 		if(h.y<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.y=0;
 		}
 	}
 	if(step == 'E'){
 		h.x+=h.speed;
 		if(h.x>9){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.x=0;
 		}
 	}
 	if(step == 'W'){
 		h.x-=h.speed;
 		if(h.x>9){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.x = 9;
 		}
 		if(h.x<0){
-			cout<<"Ouch, you ran into the wall"<<endl;
-			take_damage(h);
+			std::cout<<"Ouch, you ran into the wall"<<std::endl;
+			h = take_damage(h);
 			h.x=0;
 		}
 	}
-	
+	return h;
 }
 
 int main()
