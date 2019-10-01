@@ -17,14 +17,8 @@ int main()
 
 	
 	hero h;
-	h.name = "Hero1";
-	h.health =1;
-	h.speed =2;
-	h.x=0;
-	h.y=0;
 	fillArray();
-	hero_select(h);
-	
+	h = hero_select();
 	
 	while(h.health > 0){
 		print_array(h);
@@ -32,7 +26,7 @@ int main()
 		int temp = get_tile(h);
 		if(temp == 13)
 		{
-			exit(0);
+			break;
 		}
 		if(temp == 0)
 		{
