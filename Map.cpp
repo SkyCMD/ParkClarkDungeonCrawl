@@ -10,6 +10,8 @@ This is the map file we are creating a char array to fill all of the field with 
 #include "Structs_and_enum.h"
 #include <iostream>
 #include <random>
+#include <ctime>
+#include <cstdlib>
 
 /*******************TODO***********************
 Make printArray put 'H' for where hero currently is? Should be doable without creating another enum.
@@ -38,10 +40,12 @@ enum tile_type empty_ex = 	EMPTY_EX;
 //generates unbiased random number between specified range
 int randomInt(int x, int y)
 {
-	std::random_device rd;
-	std::mt19937 eng(rd());
-	std::uniform_int_distribution<> uni(x,y);
-	return uni(eng);
+//	std::random_device rd;
+//	std::mt19937 eng(rd());
+//	std::uniform_int_distribution<> uni(x,y);
+//	return uni(eng);
+	srand(time(NULL));
+	return rand()%y+1;
 }
 
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
