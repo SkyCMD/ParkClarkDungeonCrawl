@@ -17,55 +17,40 @@ int main()
 
 	
 	hero h;
+	h = hero_select();
 	fillArray();
-
-	hero_select(h);
-	
-	print_array(h);
-	h = move_hero(h);
-	std::cout<<h.x<<", "<<h.y<<std::endl;
-	print_array(h);
-	
-	h = move_hero(h);
-	std::cout<<h.x<<", "<<h.y<<std::endl;
-	print_array(h);
-	
-	
-
-	// h = hero_select();
-	
-	// while(h.health > 0){
-		// print_array(h);
-		// h = move_hero(h);
-		// int temp = get_tile(h);
-		// if(temp == 13)
-		// {
-			// break;
-		// }
-		// if(temp == 0)
-		// {
-			// found_spike(h);
-		// }
-		// if(temp == 1){
-			// found_qs(h);
-		// }
-		// if(temp == 2)
-		// {
-			// found_insult(h);
-		// }
-		// if(temp == 3)
-		// {
-			// found_good_potion(h);
-		// }
-		// if(temp == 4)
-		// {
-			// found_bad_potion(h);
-		// }
-		// if(temp == 5)
-		// {
-			// found_empty(h);
-		// }
-	// }
+	 while(h.health > 0){
+		 print_array(h);
+		 h = move_hero(h);
+		 int temp = get_tile(h);
+		 if(temp == 13)
+		 {
+			 break;
+		 }
+		 if(temp == 0)
+		 {
+			 found_spike(h);
+		 }
+		 if(temp == 1){
+			 found_qs(h);
+		 }
+		 if(temp == 2)
+		 {
+			 found_insult(h);
+		 }
+		 if(temp == 3)
+		 {
+			 found_good_potion(h);
+		 }
+		 if(temp == 4)
+		 {
+			 found_bad_potion(h);
+		 }
+		 if(temp == 5)
+		 {
+			 found_empty(h);
+		 }
+	 }
 
 	std::cout<<"You win maybe";
 	return 0;
