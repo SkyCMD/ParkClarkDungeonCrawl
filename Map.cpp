@@ -13,6 +13,7 @@ This is the map file we are creating a char array to fill all of the field with 
 #include <random>
 #include <ctime>
 #include <cstdlib>
+#include <unistd.h>
 
 /*******************TODO***********************
 Make printArray put 'H' for where hero currently is? Should be doable without creating another enum.
@@ -88,29 +89,77 @@ void fillArray()
 Here we are creating the explored room method of change the tile. Need to add change of status to tiles.
 */
 void found_empty(hero h){
+	std:: cout<<" Just another empty room, that's good right?"<<std::endl;
 	map[h.y][h.x] = empty_ex;	// This is a space for empty
 }
 
 hero found_spike(hero h){
+	std::cout<<"You fell into a spike trap! You lost health."<<std::endl;
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
 	h = take_damage(h);
 	return h;
 }
 
 hero found_qs(hero h){
+	
+	std:: cout<<"Quick Sand Trap! Quickly Type in your hero's name to prevent damage for every second stuck in the sand!"<<std::endl;
+	std::string s1;
+		
+	double temp;	
+	clock_t time_start;
+	time_start = clock();
+		
+	while(s1!=h.name){
+	std::cout<<h.name<<std::endl;
+	std::cin>>s1;
+	
+	// h = take_damage(h);
+	// std:: cout << h.health<<std::endl;
+	// std:: cout<<"Quick Sand Trap! Quickly Type in your hero's name to prevent more damage!"<<std::endl;
+	}
+	temp = (clock()-time_start)/1000;
+	std::cout <<temp<<std::endl;
+	h.health-=temp;
 	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
 	return take_damage(h);			// come back and change
 }
 
 void found_insult(hero h){
+	std:: cout<< "You hear something yelling... What is that? What are they saying?"<<std::endl;
+	int r = randomInt(20);
+	switch(r){
+		case 0: std::cout<< "Your Mom goes to college"<<std::endl;
+		case 1: std::cout<< "First Time visiting a dungeon, isn't it?"<<std::endl;
+		case 2: std::cout<< "You don't even go here!"<<std::endl;
+		case 3: std::cout<< "You probably dropped out!"<<std::endl;
+		case 4: std::cout<< "Nice shoes... is that what heroes are wearing these days?"<<std::endl;
+		case 5: std::cout<< "Where'd you get that cape? Walmart?"<<std::endl;
+		case 6: std::cout<< "Rocks are your only friends."<<std::endl;
+		case 7: std::cout<< "The only girl who loves you is your mother."<<std::endl;
+		case 8: std::cout<< "I'm surrounded by idiots."<<std::endl;
+		case 9: std::cout<< "You clinking, clanking, clattering collection of caliginous junk!"<<std::endl;
+		case 10: std::cout<< "Let me guess you have a great personality."<<std::endl;
+		case 11: std::cout<< "You are a sad strange little man"<<std::endl;
+		case 12: std::cout<< "To call you stupid would be an insult to stupid people!"<<std::endl;
+		case 13: std::cout<< "You no enemies, but are intensely disliked by your friends.e"<<std::endl;
+		case 14: std::cout<< "Sharp as a marble you are."<<std::endl;
+		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl;
+		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl;
+		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl;
+		default: std::cout<<"You're weird"<<std::endl;
+	}
+	
+	
 	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
 }
 hero found_good_potion(hero h){
+	std:: cout << "A health potion! Phew... That was needed"<< std:: endl;
 	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
 	return gain_health(h);
 }
 
 hero found_bad_potion(hero h){
+	std:: cout << "You suddenly feel really dizzy... is up still up?"<< std::endl;
 	map[h.y][h.x] = bad_potion_ex; // This is the asterix
 	return confuse(h);
 }

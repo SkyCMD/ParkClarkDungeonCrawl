@@ -35,7 +35,7 @@ hero take_damage(hero h){
 
 hero gain_health(hero h){
 	h.health ++;
-	std::cout<<"HP: "<<h.health<<std::endl;
+	//std::cout<<"HP: "<<h.health<<std::endl;
 	return h;
 }
 

@@ -52,9 +52,12 @@ int main()
 		 {
 			 found_empty(h);
 		 }
+		 if(temp>5&& temp<12){
+			std::cout<<"You've already been here... Maybe find the exit?"<<std::endl;
+		 }
 		 std::cout<<"HP: "<<h.health<<std::endl;
 	 }
 
-	std::cout<<"You win maybe";
+	std::cout<<"You win... maybe";
 	return 0;
 }
