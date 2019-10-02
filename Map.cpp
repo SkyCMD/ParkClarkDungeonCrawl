@@ -102,7 +102,7 @@ hero found_spike(hero h){
 
 hero found_qs(hero h){
 	
-	std:: cout<<"Quick Sand Trap! Quickly Type in your hero's name to prevent damage for every second stuck in the sand!"<<std::endl;
+	std:: cout<<"Quick Sand Trap! Quickly Type in your hero's first name to prevent damage for every second stuck in the sand!"<<std::endl;
 	std::string s1;
 		
 	double temp;	
@@ -120,7 +120,7 @@ hero found_qs(hero h){
 	temp = (clock()-time_start)/1000;
 	std::cout <<temp<<std::endl;
 	h.health-=temp;
-	map[h.y][h.x] = qs_trap_ex;	// This is and exclamation mark
+	map[h.y][h.x] = qs_trap_ex;	// This is an exclamation mark
 	return take_damage(h);			// come back and change
 }
 
@@ -138,14 +138,17 @@ void found_insult(hero h){
 		case 7: std::cout<< "The only girl who loves you is your mother."<<std::endl;
 		case 8: std::cout<< "I'm surrounded by idiots."<<std::endl;
 		case 9: std::cout<< "You clinking, clanking, clattering collection of caliginous junk!"<<std::endl;
-		case 10: std::cout<< "Let me guess you have a great personality."<<std::endl;
+		case 10: std::cout<< "Let me guess, you have a GREAT personality."<<std::endl;
 		case 11: std::cout<< "You are a sad strange little man"<<std::endl;
 		case 12: std::cout<< "To call you stupid would be an insult to stupid people!"<<std::endl;
-		case 13: std::cout<< "You no enemies, but are intensely disliked by your friends.e"<<std::endl;
+		case 13: std::cout<< "You have no enemies, but are intensely disliked by your friends."<<std::endl;
 		case 14: std::cout<< "Sharp as a marble you are."<<std::endl;
 		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl;
 		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl;
 		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl;
+		case 18: std::cout<< "If I was stuck in a room with you, Hitler, and Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n";
+		case 19: std::cout<< "That's okay, I remember my first time playing a video game too.\n";
+		case 20: std::cout<< "Wow this game stinks! ...oh wait, I think that's you I'm smellling.\n";
 		default: std::cout<<"You're weird"<<std::endl;
 	}
 	
