@@ -57,7 +57,7 @@ int main()
 		 if(temp>5&& temp<12){
 			std::cout<<"You've already been here... Maybe find the exit?"<<std::endl;
 		 }
-		 std::cout<<"HP: "<<h.health<<std::endl;
+		 std::cout<<"\n\tHP: "<<h.health<<std::endl;
 	 }
 	if(h.health < 1) {
 		std::cout << "Game over man, GAME OVER! Got another quarter?\n";
