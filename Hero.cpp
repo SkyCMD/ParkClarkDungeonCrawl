@@ -117,5 +117,6 @@ hero move_hero(hero h){
 
 int calc_score(hero h) 
 {
-	return (1/steps) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health));
+	
+	return (1/static_cast<double>(steps)) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health));
 }
