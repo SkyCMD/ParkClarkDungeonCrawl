@@ -72,7 +72,7 @@ void fillArray()
 			int col = randomInt(10);		
 			
 			//generate random 'trap' tile to place
-			int r = randomInt(4);
+			int r = randomInt(5);
 			if(r == 0){map[i][col] = spike_trap;}
 			if(r == 1){map[i][col] = qs_trap;}
 			if(r == 2){map[i][col] = insult_trap;}
