@@ -38,8 +38,9 @@ hero take_damage(hero h){
 }
 
 hero gain_health(hero h){
-	h.health ++;
-	//std::cout<<"HP: "<<h.health<<std::endl;
+
+	int rint = rand()%6;
+	h.health += rint;
 	return h;
 }
 
@@ -117,5 +118,8 @@ hero move_hero(hero h){
 
 int calc_score(hero h) 
 {
-	return (1/steps) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health));
+	std::cout << "steps: " << steps << "      double h.health: " << static_cast<double>(h.health) << "      start health: " <<  health;
+	
+	return ((1/steps) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health)));
+
 }
