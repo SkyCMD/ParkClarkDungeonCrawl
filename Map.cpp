@@ -118,9 +118,8 @@ hero found_qs(hero h){
 	std::cin>>s1;
 	}
 	temp = (clock()-time_start)/1000;
-	std::cout <<temp<<std::endl;
 	h.health-=temp;
-	std::cout << "You lost " << health_before - h.health << " hit points.";
+	std::cout << "You lost " << health_before - h.health << " hit points.\n";
 	map[h.y][h.x] = qs_trap_ex;	// This is an exclamation mark
 	return take_damage(h);			// come back and change
 }
@@ -144,7 +143,7 @@ void found_insult(hero h){
 		case 12: std::cout<< "To call you stupid would be an insult to stupid people!"<<std::endl; break;
 		case 13: std::cout<< "You have no enemies, but are intensely disliked by your friends."<<std::endl; break;
 		case 14: std::cout<< "Sharp as a marble you are."<<std::endl; break;
-		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl; break;
+		case 15: std::cout<< "Hahahahahahaha... have you seen your face!"<<std::endl; break;
 		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl; break;
 		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl; break;
 		case 18: std::cout<< "If I was stuck in a room with you, Hitler, Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n"; break;
