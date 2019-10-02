@@ -22,10 +22,11 @@ int main()
 	fillArray();
 	
 	 while(h.health > 0){
-		 std::cout << "\n\n\n\n\n\n\n\n\n";
+		 std::cout << "\n\n\n\n\n";
 		 print_array(h);
 		 h = move_hero(h);
 		 int temp = get_tile(h);
+		 std::cout << "\n\n\n\n\n";
 		 if(temp == 13)
 		 {
 			 break;

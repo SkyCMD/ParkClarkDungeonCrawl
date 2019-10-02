@@ -95,9 +95,10 @@ void found_empty(hero h){
 
 hero found_spike(hero h){
 	
-	std::cout<<"You fell into a spike trap! You lost health."<<std::endl;
+	int rint = rand()%10+1;
+	std::cout<<"You fell into a spike trap! You lost " << rint << " hit points."<<std::endl;
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
-	h.health-=rand()%10+1;
+	h.health-=rint;
 	h = take_damage(h);
 	
 	return h;
@@ -105,7 +106,8 @@ hero found_spike(hero h){
 
 hero found_qs(hero h){
 	
-	std:: cout<<"Quick Sand Trap! Quickly Type in your hero's first name to prevent damage for every second stuck in the sand!"<<std::endl;
+	int health_before = h.health;	
+	std::cout<<"Quick Sand! Quickly Type your hero's first name!"<<std::endl;
 	std::string s1;
 		
 	double temp;	
@@ -118,12 +120,13 @@ hero found_qs(hero h){
 	temp = (clock()-time_start)/1000;
 	std::cout <<temp<<std::endl;
 	h.health-=temp;
+	std::cout << "You lost " << health_before - h.health << " hit points.";
 	map[h.y][h.x] = qs_trap_ex;	// This is an exclamation mark
 	return take_damage(h);			// come back and change
 }
 
 void found_insult(hero h){
-	std:: cout<< "\n\n\nA voice from the dungeon taunts you...\n"<<std::endl;
+	std:: cout<< "A voice from the dungeon taunts you...\n"<<std::endl;
 	int r = randomInt(20);
 	switch(r){
 		case 0: std::cout<< "Your Mom goes to college"<<std::endl; break;
@@ -133,7 +136,7 @@ void found_insult(hero h){
 		case 4: std::cout<< "Nice shoes... is that what heroes are wearing these days?"<<std::endl; break;
 		case 5: std::cout<< "Where'd you get that cape? Walmart?"<<std::endl; break;
 		case 6: std::cout<< "Rocks are your only friends."<<std::endl; break;
-		case 7: std::cout<< "The only girl who loves you is your mother."<<std::endl; break;
+		case 7: std::cout<< "Dishonor on you, dishonor on your cow, dishonor on your whole family!"<<std::endl; break;
 		case 8: std::cout<< "I'm surrounded by idiots."<<std::endl; break;
 		case 9: std::cout<< "You clinking, clanking, clattering collection of caliginous junk!"<<std::endl; break;
 		case 10: std::cout<< "Let me guess, you have a GREAT personality."<<std::endl; break;
@@ -144,19 +147,21 @@ void found_insult(hero h){
 		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl; break;
 		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl; break;
 		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl; break;
-		case 18: std::cout<< "If I was stuck in a room with you, Hitler, and Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n"; break;
+		case 18: std::cout<< "If I was stuck in a room with you, Hitler, Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n"; break;
 		case 19: std::cout<< "That's okay, I remember my first time playing a video game too.\n"; break;
-		case 20: std::cout<< "Wow this game stinks! ...oh wait, I think that's you I'm smellling.\n"; break;
-		default: std::cout<<"You're weird"<<std::endl;
+		case 20: std::cout<< "I fart in your general direction.\n"; break;
+		default: std::cout<< "You're weird"<<std::endl;
 	}
 	
 	
 	map[h.y][h.x] = insult_trap_ex;	// This is the question mark
 }
 hero found_good_potion(hero h){
-	std:: cout << "A health potion! Phew... That was needed"<< std:: endl;
+	int health_before = h.health;
+	h = gain_health(h);
+	std:: cout << "A health potion! You gained " << h.health - health_before << " hit points.  Phew... That was needed."<< std:: endl;
 	map[h.y][h.x] = good_potion_ex;	// This is the plus signal
-	return gain_health(h);
+	return h;
 }
 
 hero found_bad_potion(hero h){
