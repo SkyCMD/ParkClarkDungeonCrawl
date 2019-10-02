@@ -95,7 +95,13 @@ void found_empty(hero h){
 
 hero found_spike(hero h){
 	
+	if(h.name == "Indiana"){
+		if(randomInt(10)>4){
+			std::cout << "Indiana Jones uses his rope to swing to safety"<<std::endl;
+			return h;
+	}
 	int rint = rand()%10+1;
+	
 	std::cout<<"You fell into a spike trap! You lost " << rint << " hit points."<<std::endl;
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
 	h.health-=rint;
@@ -105,7 +111,11 @@ hero found_spike(hero h){
 }
 
 hero found_qs(hero h){
-	
+	if(h.name == "Indiana"){
+		if(randomInt(10)>4){
+			std::cout << "Indiana Jones graps a snake to climb out of the sand."<<std::endl;
+			return h;
+	}
 	int health_before = h.health;	
 	std::cout<<"Quick Sand! Quickly Type your hero's first name!"<<std::endl;
 	std::string s1;
