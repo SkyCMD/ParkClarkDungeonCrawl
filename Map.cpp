@@ -89,14 +89,17 @@ void fillArray()
 Here we are creating the explored room method of change the tile. Need to add change of status to tiles.
 */
 void found_empty(hero h){
-	std:: cout<<" Just another empty room, that's good right?"<<std::endl;
+	std:: cout<<"Just another empty room, that's good right?"<<std::endl;
 	map[h.y][h.x] = empty_ex;	// This is a space for empty
 }
 
 hero found_spike(hero h){
+	
 	std::cout<<"You fell into a spike trap! You lost health."<<std::endl;
 	map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
+	h.health-=rand()%10+1;
 	h = take_damage(h);
+	
 	return h;
 }
 
