@@ -22,6 +22,7 @@ int main()
 	fillArray();
 	
 	 while(h.health > 0){
+		 std::cout << "\n\n\n\n\n\n\n\n\n";
 		 print_array(h);
 		 h = move_hero(h);
 		 int temp = get_tile(h);
@@ -57,7 +58,17 @@ int main()
 		 }
 		 std::cout<<"HP: "<<h.health<<std::endl;
 	 }
-
-	std::cout<<"You win... maybe";
+	if(h.health < 1) {
+		std::cout << "Game over man, GAME OVER! Got another quarter?\n";
+		exit(0);
+	}
+	if(h.name == "Indiana"){
+	std::cout << "Indiana Jones has defeated the temple of doom!\n";
+	} else if (h.name == "Lightning"){
+	std::cout << "Lightning McQueen won the piston cup!\n";
+	} else {
+	std::cout << "Wax found the Bands of Mourning!\n";
+	}
+	std::cout << "You took " << steps << " steps. Your final score was\n" <<  calc_score(h) << "\n";
 	return 0;
 }

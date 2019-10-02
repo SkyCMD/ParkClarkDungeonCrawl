@@ -50,7 +50,7 @@ enum tile_type empty_ex = 	EMPTY_EX;
 // }
 
 int randomInt(int x){
-	return (int)rand()%x+1;	
+	return (int)rand()%x;	
 }
 //fills array first with blanks, then with randomized special tiles, then creates static entrance and exit
 void fillArray()
@@ -69,7 +69,7 @@ void fillArray()
 		for(int j = 0; j < 5; j++)
 		{
 			//random column to fill, up to 5 special tiles per row, limits unbeatable maps
-			int col = randomInt(9);		
+			int col = randomInt(10);		
 			
 			//generate random 'trap' tile to place
 			int r = randomInt(4);
@@ -113,12 +113,7 @@ hero found_qs(hero h){
 	time_start = clock();
 		
 	while(s1!=h.name){
-	std::cout<<h.name<<std::endl;
 	std::cin>>s1;
-	
-	// h = take_damage(h);
-	// std:: cout << h.health<<std::endl;
-	// std:: cout<<"Quick Sand Trap! Quickly Type in your hero's name to prevent more damage!"<<std::endl;
 	}
 	temp = (clock()-time_start)/1000;
 	std::cout <<temp<<std::endl;
@@ -128,30 +123,30 @@ hero found_qs(hero h){
 }
 
 void found_insult(hero h){
-	std:: cout<< "You hear something yelling... What is that? What are they saying?"<<std::endl;
+	std:: cout<< "\n\n\nA voice from the dungeon taunts you...\n"<<std::endl;
 	int r = randomInt(20);
 	switch(r){
-		case 0: std::cout<< "Your Mom goes to college"<<std::endl;
-		case 1: std::cout<< "First Time visiting a dungeon, isn't it?"<<std::endl;
-		case 2: std::cout<< "You don't even go here!"<<std::endl;
-		case 3: std::cout<< "You probably dropped out!"<<std::endl;
-		case 4: std::cout<< "Nice shoes... is that what heroes are wearing these days?"<<std::endl;
-		case 5: std::cout<< "Where'd you get that cape? Walmart?"<<std::endl;
-		case 6: std::cout<< "Rocks are your only friends."<<std::endl;
-		case 7: std::cout<< "The only girl who loves you is your mother."<<std::endl;
-		case 8: std::cout<< "I'm surrounded by idiots."<<std::endl;
-		case 9: std::cout<< "You clinking, clanking, clattering collection of caliginous junk!"<<std::endl;
-		case 10: std::cout<< "Let me guess, you have a GREAT personality."<<std::endl;
-		case 11: std::cout<< "You are a sad strange little man"<<std::endl;
-		case 12: std::cout<< "To call you stupid would be an insult to stupid people!"<<std::endl;
-		case 13: std::cout<< "You have no enemies, but are intensely disliked by your friends."<<std::endl;
-		case 14: std::cout<< "Sharp as a marble you are."<<std::endl;
-		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl;
-		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl;
-		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl;
-		case 18: std::cout<< "If I was stuck in a room with you, Hitler, and Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n";
-		case 19: std::cout<< "That's okay, I remember my first time playing a video game too.\n";
-		case 20: std::cout<< "Wow this game stinks! ...oh wait, I think that's you I'm smellling.\n";
+		case 0: std::cout<< "Your Mom goes to college"<<std::endl; break;
+		case 1: std::cout<< "First Time visiting a dungeon, isn't it?"<<std::endl; break;
+		case 2: std::cout<< "You don't even go here!"<<std::endl; break;
+		case 3: std::cout<< "You probably dropped out!"<<std::endl; break;
+		case 4: std::cout<< "Nice shoes... is that what heroes are wearing these days?"<<std::endl; break;
+		case 5: std::cout<< "Where'd you get that cape? Walmart?"<<std::endl; break;
+		case 6: std::cout<< "Rocks are your only friends."<<std::endl; break;
+		case 7: std::cout<< "The only girl who loves you is your mother."<<std::endl; break;
+		case 8: std::cout<< "I'm surrounded by idiots."<<std::endl; break;
+		case 9: std::cout<< "You clinking, clanking, clattering collection of caliginous junk!"<<std::endl; break;
+		case 10: std::cout<< "Let me guess, you have a GREAT personality."<<std::endl; break;
+		case 11: std::cout<< "You are a sad strange little man"<<std::endl; break;
+		case 12: std::cout<< "To call you stupid would be an insult to stupid people!"<<std::endl; break;
+		case 13: std::cout<< "You have no enemies, but are intensely disliked by your friends."<<std::endl; break;
+		case 14: std::cout<< "Sharp as a marble you are."<<std::endl; break;
+		case 15: std::cout<< "Hahahahahahaha... your face!"<<std::endl; break;
+		case 16: std::cout<< "Scientists say the universe is made up of neutrons, protons and electrons. They forgot to mention morons."<<std::endl; break;
+		case 17: std::cout<< "Someday you’ll go far… and I hope you stay there."<<std::endl; break;
+		case 18: std::cout<< "If I was stuck in a room with you, Hitler, and Bin Laden and a gun with 2 bullets... I'd shoot you twice.\n"; break;
+		case 19: std::cout<< "That's okay, I remember my first time playing a video game too.\n"; break;
+		case 20: std::cout<< "Wow this game stinks! ...oh wait, I think that's you I'm smellling.\n"; break;
 		default: std::cout<<"You're weird"<<std::endl;
 	}
 	

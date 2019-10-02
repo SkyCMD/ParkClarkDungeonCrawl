@@ -2,7 +2,10 @@
 #include <string>
 #include <iostream>
 
-
+double score{0};
+double percent_health{100.00};
+int health;
+int steps{0};
 hero hero_select()
 {
 	hero h;
@@ -19,9 +22,10 @@ hero hero_select()
 		std::cout << "Please eneter a valid selection.\n";
 		std::cin >> mander;
 	}
-	if(mander == 'A'){h.name="Indiana Jones"; h.x=0; h.y=0; h.health=20; h.speed=1;}
-	if(mander == 'B'){h.name="Lightning McQueen"; h.x=0; h.y=0; h.health=50; h.speed=2;}
-	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=100; h.speed=1;}
+	if(mander == 'A'){h.name="Indiana"; h.x=0; h.y=0; h.health=30; h.speed=1;}
+	if(mander == 'B'){h.name="Lightning"; h.x=0; h.y=0; h.health=50; h.speed=2;}
+	if(mander == 'C'){h.name="Waxillium"; h.x=0; h.y=0; h.health=80; h.speed=1;}
+	health = h.health;
 
 	return h;
 }
@@ -55,7 +59,7 @@ hero move_hero(hero h){
 		std::cout<< "That is not a valid direction, learn directions Better! Please enter a N,S,E, or W."<<std::endl;
 		std::cin>>step;
 	}
-	
+	steps++;	
 	if(step == 'N'){
 		h.y-=h.speed;
 		if(h.y>29){
@@ -109,4 +113,9 @@ hero move_hero(hero h){
 		}
 	}
 	return h;
+}
+
+int calc_score(hero h) 
+{
+	return (1/steps) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health));
 }
