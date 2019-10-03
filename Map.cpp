@@ -3,8 +3,6 @@ Created by Parker Evans on 9/19
 with the help of Skyler Clark 
 
 This is the map file we are creating a char array to fill all of the field with an '*' and then when explored to a 'space'
-
-
 */
 
 #include "Structs_and_enum.h"
@@ -97,8 +95,9 @@ hero found_spike(hero h){
 	
 	if(h.name == "Indiana"){
 		if(randomInt(10)>4){
-			std::cout << "Indiana Jones uses his rope to swing to safety"<<std::endl;
+			std::cout << "Indiana Jones uses his whip to swing to safety."<<std::endl;
 			return h;
+		}
 	}
 	int rint = rand()%10+1;
 	
@@ -115,6 +114,7 @@ hero found_qs(hero h){
 		if(randomInt(10)>4){
 			std::cout << "Indiana Jones graps a snake to climb out of the sand."<<std::endl;
 			return h;
+		}
 	}
 	int health_before = h.health;	
 	std::cout<<"Quick Sand! Quickly Type your hero's first name!"<<std::endl;
