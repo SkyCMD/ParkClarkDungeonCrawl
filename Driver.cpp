@@ -70,6 +70,6 @@ int main()
 	} else {
 	std::cout << "Wax found the Bands of Mourning!\n";
 	}
-	std::cout << "You took " << steps << " steps. Your final score was\n" <<  calc_score(h) << "\n";
+	std::cout << "You took " << steps << " steps. Your final score was " <<  calc_score(h) << "!\n";
 	return 0;
 }

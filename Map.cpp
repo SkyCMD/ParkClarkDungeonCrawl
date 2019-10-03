@@ -98,7 +98,8 @@ hero found_spike(hero h){
 	
 	if(h.name == "Indiana"){
 		if(randomInt(10)>4){
-			std::cout << "Indiana Jones uses his whip to swing to safety."<<std::endl;
+			std::cout << "Indiana Jones uses his whip to swing to safety. Trap avoided!"<<std::endl;
+			map[h.y][h.x] = spike_trap_ex;	 // This is a carrot for spike
 			return h;
 		}
 	}
@@ -118,7 +119,8 @@ the timer.
 hero found_qs(hero h){
 	if(h.name == "Indiana"){
 		if(randomInt(10)>4){
-			std::cout << "Indiana Jones grabs a snake to climb out of the sand."<<std::endl;
+			std::cout << "Indiana Jones grabs a snake to climb out of the sand. Trap avoided!"<<std::endl;
+			map[h.y][h.x] = qs_trap_ex;	// This is an exclamation mark
 			return h;
 		}
 	}

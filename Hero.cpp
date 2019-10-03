@@ -49,7 +49,6 @@ hero confuse(hero h){
 	return h;
 }
 
-
 hero move_hero(hero h){
 
 	std::cout<< "Please enter a NSEW direction to move"<<std::endl;
@@ -118,8 +117,6 @@ hero move_hero(hero h){
 
 int calc_score(hero h) 
 {
-	
-	std:: cout<< " YOur hero's start health is "<<health<<"Your ending health is "<< h.health<<std::endl;
 	
 	return (1/static_cast<double>(steps)) * (static_cast<double>(h.health) * 1000 / static_cast<double>(health));
 
